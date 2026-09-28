@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS emails (
+  id TEXT PRIMARY KEY,
+  recipients TEXT NOT NULL DEFAULT '',
+  subject TEXT NOT NULL DEFAULT '',
+  sent_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS opens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email_id TEXT NOT NULL REFERENCES emails(id) ON DELETE CASCADE,
+  opened_at INTEGER NOT NULL,
+  user_agent TEXT NOT NULL DEFAULT ''
+);
+
+CREATE INDEX IF NOT EXISTS opens_email_id ON opens(email_id);
+CREATE INDEX IF NOT EXISTS emails_sent_at ON emails(sent_at);

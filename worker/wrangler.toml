@@ -1,0 +1,11 @@
+name = "mailtrack"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mailtrack"
+# Replace with the id printed by `npx wrangler d1 create mailtrack`
+database_id = "3a920d1a-acb3-4dc9-8c22-b3ad6826490b"
+
+# API_KEY is a secret: `npx wrangler secret put API_KEY` (and in .dev.vars for local dev)
